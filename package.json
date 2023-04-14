@@ -16,5 +16,11 @@
   "bugs": {
     "url": "https://github.com/Brian-P-Anderson/xptut/issues"
   },
-  "homepage": "https://github.com/Brian-P-Anderson/xptut#readme"
+  "homepage": "https://github.com/Brian-P-Anderson/xptut#readme",
+  "dependencies": {
+    "express": "^4.18.2"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.22"
+  }
 }
