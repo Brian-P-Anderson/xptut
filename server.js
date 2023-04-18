@@ -1,18 +1,22 @@
 const express = require('express');
 const app = express();
 
+app.use(express.static("pulic"));
 app.set('view engine', 'ejs');
+app.use(logger);
 
 app.get("/", (req, res) => {
   res.render('index', { text: 'World'});
 });
 
-app.get("/users", (req, res) => {
-  res.send('User List');
-});
+const userRouter = require('./routes/users');
+app.use('/users', userRouter);
+const postRouter = require('./routes/posts');
+app.use('/posts', postRouter);
 
-app.get("/users/new", (req, res) => {
-  res.send('User New Form');
-});
+function logger(req, res, next) {
+  console.log(req.originalUrl);
+  next();
+};
 
 app.listen(3000);
